@@ -6,6 +6,10 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
 import static javafx.application.Application.launch;
 
 public class Driver extends Application {
@@ -23,8 +27,24 @@ public class Driver extends Application {
         }
     }
 
+    public static void ReadFiles(){
+        try {
+            Scanner inScanner = new Scanner(new File("vectors.txt"));
+
+            while (inScanner.hasNext()) {
+                String[] loc = inScanner.nextLine().split("#");
+                System.out.println(Integer.valueOf(loc[1].trim()));
+            }
+            inScanner.close();
+        } catch (FileNotFoundException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
 
     public static void main(String[] args) {
-        launch(args);
+        ReadFiles();
+
+       // launch(args);
     }
 }

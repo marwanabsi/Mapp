@@ -100,7 +100,7 @@
     </VBox>
     <ScrollPane prefHeight="200.0" prefWidth="200.0">
         <content>
-            <Pane>
+            <Pane fx:id="map">
                 <children>
                     <ImageView fitHeight="886.0" fitWidth="1342.0">
                         <image>
