@@ -76,12 +76,12 @@ public class AStar {
     }
 
     public void insertAdj(String str1, String str2, double cost) {
-
-        int index = returnIndexOfString(str1);
-        if (index != -1) {
-            virtexies.get(index).adj.add(str2);
-            via.add(new Edge(str1, str2, cost));
-        }
+//
+//        int index = returnIndexOfString(str1);
+//        if (index != -1) {
+//            virtexies.get(index).adj.add(str2);
+//            via.add(new Edge(str1, str2, cost));
+//        }
     }
 
     public int returnIndexOfEdge(String start, String end) {

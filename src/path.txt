@@ -1,0 +1,28 @@
+Sereea#Waqala Shcool#466
+Sereea#5Star#500
+Sereea#ArabBank#365
+ArabBank#Sereea#365
+ArabBank#icecreemBaldna#394
+ArabBank#Sufi Cafe#202
+//ArabBank#tartelMarket#581
+croos2#ArabBank#255
+croos2#Waqala Shcool#168
+icecreemBaldna#ArabBank#394
+icecreemBaldna#Alotoor#257
+icecreemBaldna#croos6#166
+icecreemBaldna#Baldea Ramallah#252
+Alotoor#icecreemBaldna#257
+Alotoor#Al-Saa'a Square#131
+AlManara#Alotoor#91
+AlManara#BOP#292
+AlManara#Al-Hesba#143
+AlManara#KFC#464
+BOP#croos6#322
+BOP#icecreemBaldna#540
+KFC#AlManara#464
+KFC#croos3#44
+croos3#KFC#44
+croos3#croos4#225
+croos4#Frinds School#214
+Frinds School#Crossroad Q Bus#269
+Frinds School#croos5#265
