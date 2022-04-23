@@ -1,9 +1,16 @@
 Sereea#38#298
 ArabBank#218#347
-StRukab#414#365
+croos2#201#470
+icecreemBaldna#414#365
+croos6#489#363
 BOP#523#212
 KFC#718#138
 AlManara#601#338
+croos3#732#124
+croos4#850#149
+croos5#978#254
+2shara RedHalal#953#248
+Frinds School#857#248
 Crossroad Q Bus#739#289
 Jerosalem Bus Station#758#338
 Alhelal Red#994#278
@@ -18,10 +25,11 @@ Paltel#475#483
 Acre#264#123
 Ramallah Park#380#536
 Baldea Ramallah#373#500
+Crossr Traffic signal#309#565
 Sufi Cafe#273#449
 Waqala Shcool#113#520
 5Star#50#685
-Mfrak Baldea#209#634
+tartelMarket#209#634
 Betoni Buses#568#568
 St Hosbital#637#545
 Ramallah Hosbetal#668#642
