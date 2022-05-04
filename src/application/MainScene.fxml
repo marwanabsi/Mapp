@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
-<SplitPane dividerPositions="0.16521739130434782" prefHeight="898.0" prefWidth="1612.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controaller">
+<SplitPane dividerPositions="0.16521739130434782" prefHeight="740.0" prefWidth="1237.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controaller">
 <items>
     <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
         <children>

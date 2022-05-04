@@ -4,8 +4,7 @@ Sereea#ArabBank#365
 ArabBank#Sereea#365
 ArabBank#icecreemBaldna#394
 ArabBank#Sufi Cafe#202
-Sufi Cafe#Crossr Traffic signal#150
-Sufi Cafe#croos2#160
+
 croos2#ArabBank#255
 croos2#Waqala Shcool#168
 icecreemBaldna#ArabBank#394

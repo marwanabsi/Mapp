@@ -54,7 +54,13 @@ public class Driver extends Application {
                 String[] loc = inScanner.nextLine().split("#");
                 for (int i=0;i<virtexies.size();i++){
                     if (loc[0].equalsIgnoreCase(virtexies.get(i).getName())){
-                        Edge y = new Edge(loc[1],Integer.parseInt(loc[2]));
+                        Vertix k=null;
+                        for (int j=0;j<virtexies.size();j++){
+                            if (loc[1].equals(virtexies.get(j).getName())){
+                                k=virtexies.get(j);
+                            }
+                        }
+                        Edge y = new Edge(virtexies.get(i),k,Integer.parseInt(loc[2]));
                         virtexies.get(i).adjacencies.add(y) ;
                     }
                     else
@@ -74,10 +80,10 @@ public class Driver extends Application {
     public static void main(String[] args) {
 //        File file = new File(".");
 //        for(String fileNames : file.list()) System.out.println(fileNames);
-        System.out.println(virtexies.size());
+        //System.out.println(virtexies.size());
         ReadFiles();
         ReadFiles2();
-        System.out.println(virtexies.toString());
+        //System.out.println(virtexies.toString());
         launch(args);
     }
 }

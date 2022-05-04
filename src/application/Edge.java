@@ -1,12 +1,16 @@
 package application;
 
 public class Edge {
-    private  int cost;
-    public String target;
+    private int cost;
+    private Vertix target;
 
-    Edge(String targetNode, int costVal){
+    private Vertix from;
+
+
+    Edge(Vertix from, Vertix targetNode, int costVal) {
         target = targetNode;
         cost = costVal;
+        this.from = from;
     }
 
     public int getCost() {
@@ -14,22 +18,32 @@ public class Edge {
     }
 
     public void setCost(int cost) {
+
         this.cost = cost;
     }
 
-    public String getTarget() {
+    public Vertix getTarget() {
         return target;
     }
 
-    public void setTarget(String target) {
+    public void setTarget(Vertix target) {
         this.target = target;
+    }
+
+    public Vertix getFrom() {
+        return from;
+    }
+
+    public void setFrom(Vertix from) {
+        this.from = from;
     }
 
     @Override
     public String toString() {
         return "Edge{" +
                 "cost=" + cost +
-                ", target='" + target + '\'' +
+                ", from='" + from + '\'' +
+                ", target=" + target +
                 '}';
     }
 }
