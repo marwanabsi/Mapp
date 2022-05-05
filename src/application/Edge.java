@@ -1,40 +1,49 @@
 package application;
 
 public class Edge {
-    double cost;
-    String start;
-    String end;
-    public Edge( String start, String end,double cost2) {
-        super();
-        this.cost = cost2;
-        this.start = start;
-        this.end = end;
-    }
-    public Edge() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
-    public double getCost() {
-        return cost;
-    }
-    public void setCost(double cost) {
-        this.cost = cost;
-    }
-    public String getStart() {
-        return start;
-    }
-    public void setStart(String start) {
-        this.start = start;
-    }
-    public String getEnd() {
-        return end;
-    }
-    public void setEnd(String end) {
-        this.end = end;
-    }
-    @Override
-    public String toString() {
-        return "Edge [cost=" + cost + ", start=" + start + ", end=" + end + "]";
+    private int cost;
+    private Vertix target;
+
+    private Vertix from;
+
+
+    Edge(Vertix from, Vertix targetNode, int costVal) {
+        target = targetNode;
+        cost = costVal;
+        this.from = from;
     }
 
+    public int getCost() {
+        return cost;
+    }
+
+    public void setCost(int cost) {
+
+        this.cost = cost;
+    }
+
+    public Vertix getTarget() {
+        return target;
+    }
+
+    public void setTarget(Vertix target) {
+        this.target = target;
+    }
+
+    public Vertix getFrom() {
+        return from;
+    }
+
+    public void setFrom(Vertix from) {
+        this.from = from;
+    }
+
+    @Override
+    public String toString() {
+        return "Edge{" +
+                "cost=" + cost +
+                ", from='" + from + '\'' +
+                ", target=" + target +
+                '}';
+    }
 }

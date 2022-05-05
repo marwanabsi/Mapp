@@ -37,6 +37,7 @@ public class Driver extends Application {
                 String[] loc = inScanner.nextLine().split("#");
                 Vertix x = new Vertix(loc[0], Integer.valueOf(loc[1].trim()), Integer.valueOf(loc[2].trim()));
                 virtexies.add(x);
+
             }
             inScanner.close();
         } catch (FileNotFoundException e) {
@@ -45,13 +46,44 @@ public class Driver extends Application {
         }
     }
 
+    public static void ReadFiles2(){
+        try {
+            Scanner inScanner = new Scanner(new File("src/Roads.txt"));
+
+            while (inScanner.hasNext()) {
+                String[] loc = inScanner.nextLine().split("#");
+                for (int i=0;i<virtexies.size();i++){
+                    if (loc[0].equalsIgnoreCase(virtexies.get(i).getName())){
+                        Vertix k=null;
+                        for (int j=0;j<virtexies.size();j++){
+                            if (loc[1].equals(virtexies.get(j).getName())){
+                                k=virtexies.get(j);
+                            }
+                        }
+                        Edge y = new Edge(virtexies.get(i),k,Integer.parseInt(loc[2]));
+                        virtexies.get(i).adjacencies.add(y) ;
+                    }
+                    else
+                        continue;
+                }
+
+            }
+            inScanner.close();
+        } catch (FileNotFoundException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
+
+
+
     public static void main(String[] args) {
 //        File file = new File(".");
 //        for(String fileNames : file.list()) System.out.println(fileNames);
-        System.out.println(virtexies.size());
+        //System.out.println(virtexies.size());
         ReadFiles();
-        System.out.println(virtexies.toString());
-
+        ReadFiles2();
+        //System.out.println(virtexies.toString());
         launch(args);
     }
 }

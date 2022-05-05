@@ -1,0 +1,51 @@
+Sereea#Waqala Shcool#466
+Sereea#5Star#500
+Sereea#ArabBank#365
+ArabBank#Sereea#365
+ArabBank#icecreemBaldna#394
+ArabBank#Sufi Cafe#202
+Sufi Cafe#Crossr Traffic signal#150
+Sufi Cafe#croos2#160
+croos2#ArabBank#255
+croos2#Waqala Shcool#168
+icecreemBaldna#ArabBank#394
+icecreemBaldna#Alotoor#257
+icecreemBaldna#croos6#166
+icecreemBaldna#Baldea Ramallah#252
+Alotoor#icecreemBaldna#257
+Alotoor#Al-Saa'a Square#131
+AlManara#Alotoor#91
+AlManara#BOP#292
+AlManara#Al-Hesba#143
+AlManara#KFC#464
+BOP#croos6#322
+BOP#icecreemBaldna#540
+KFC#AlManara#464
+KFC#croos3#44
+croos3#KFC#44
+croos3#croos4#225
+croos4#Frinds School#214
+Frinds School#Crossroad Q Bus#269
+Frinds School#2shara RedHalal#189
+2shara RedHalal#Frinds School#189
+2shara RedHalal#croos5#50
+2shara RedHalal#Al-qudos St#329
+croos5#Marioo#160
+croos5#Alhelal Red#41
+croos5#2shara RedHalal#50
+Al-qudos St#2shara RedHalal#296
+Al-qudos St#Al-qudos St2#445
+Al-qudos St#Jamal AbdAlnaser Mosq#378
+Jamal AbdAlnaser Mosq#Al-qudos St#407
+City inn Hotel#Al-qudos St#653
+Jamal AbdAlnaser Mosq#Jerosalem Bus Station#112
+Jamal AbdAlnaser Mosq#Al-Hesba#168
+Al-Hesba#Jamal AbdAlnaser Mosq#288
+Al-Hesba#Al-qudos St#519
+Al-Hesba#Al-qudos St2#662
+Al-Hesba#AlManara#143
+Al-qudos St2#Al-Hesba#662
+Al-qudos St2#City inn Hotel#227
+Al-qudos St2#Al-qudos St#445
+Jerosalem Bus Station#Jamal AbdAlnaser Mosq#112
+Jerosalem Bus Station#Crossroad Q Bus#72
