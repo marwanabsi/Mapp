@@ -1,10 +1,10 @@
 package application;
 
-public class QueuNodeee {
+public class QueNode implements Comparable<QueNode>{
     private Vertix x;
     private int total;
 
-    public QueuNodeee(Vertix x, int total) {
+    public QueNode(Vertix x, int total) {
         this.x = x;
         this.total = total;
     }
@@ -31,5 +31,10 @@ public class QueuNodeee {
                 "x=" + x +
                 ", total=" + total +
                 '}';
+    }
+
+    @Override
+    public int compareTo(QueNode o) {
+        return this.total - o.getTotal();
     }
 }

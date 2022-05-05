@@ -91,11 +91,12 @@
                   <Insets top="15.0" />
                </VBox.margin>
             </VBox>
-            <Button fx:id="exit" mnemonicParsing="false" onAction="#Exit" text="Exit">
-               <VBox.margin>
-                  <Insets top="80.0" />
-               </VBox.margin>
-            </Button>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0">
+               <children>
+                  <Button fx:id="exit" mnemonicParsing="false" onAction="#Exit" text="Exit" />
+                  <Button fx:id="rest" mnemonicParsing="false" onAction="#restb" text="Rest" />
+               </children>
+            </HBox>
         </children>
     </VBox>
     <ScrollPane prefHeight="200.0" prefWidth="200.0">

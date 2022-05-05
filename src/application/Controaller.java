@@ -9,7 +9,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
-import javafx.scene.text.Text;
 
 import java.util.*;
 
@@ -41,11 +40,46 @@ public class Controaller {
     private TextField time;
 
     @FXML
+    private Button rest;
+
+    @FXML
     private Pane map;
 
     @FXML
     void Exit(ActionEvent event) {
         System.exit(0);
+    }
+
+    @FXML
+    void restb(ActionEvent event) {
+        PriorityQueue<QueNode> queuee = new PriorityQueue<>();
+
+        boolean teargetDone = true;
+
+        fromA = from.getValue();
+        toB = target.getValue();
+
+        int DisCost=0;
+        int herusticValueN =0;
+        int countt=0;
+        setheursticValue();
+
+        Vertix minV = fromA;
+
+        while (countt!=6){
+            for (int i =0;i< minV.adjacencies.size();i++){
+                DisCost = minV.adjacencies.get(i).getCost();
+                herusticValueN = minV.adjacencies.get(i).getTarget().getH_scores();
+                QueNode testt= new QueNode(minV.adjacencies.get(i).getTarget(),(DisCost+herusticValueN));
+                queuee.add((QueNode)testt);
+
+            }
+            System.out.println("******************************");
+            System.out.println(queuee.toString());
+            countt++;
+        }
+
+
     }
 
     @FXML
@@ -78,7 +112,7 @@ public class Controaller {
     void Find(ActionEvent event) {
         //int count = 0;
 
-        PriorityQueue<QueuNodeee> queuee = new PriorityQueue<>();
+        PriorityQueue<QueNode> queuee = new PriorityQueue<>();
         boolean teargetDone = true;
         fromA = from.getValue();
         toB = target.getValue();
@@ -106,9 +140,9 @@ public class Controaller {
                 break;
             }
 
-            totalee=  disCounter+ minV.getH_scores();
-            QueuNodeee m = new QueuNodeee(minV,totalee);
-            queuee.add(m);
+//            totalee=  disCounter+ minV.getH_scores();
+//            QueNode m = new QueNode(minV,totalee);
+//            queuee.add(m);
 
 
 
@@ -125,7 +159,6 @@ public class Controaller {
                 }
             }
         }//end While
-        System.out.println(queuee.toString());
 
 
     }
@@ -134,6 +167,11 @@ public class Controaller {
     public Edge minimumEdge(Vertix x) {
         Edge min = null;
         int max = 900000;
+        for (int i = 0; i < x.adjacencies.size(); i++){
+            if (x.adjacencies.get(i).getTarget().getName().equals(toB.getName())){
+                return min=x.adjacencies.get(i);
+            }
+        }
         for (int i = 0; i < x.adjacencies.size(); i++) {
 //            System.out.println("herostic = "+(x.adjacencies.get(i).getCost()+x.adjacencies.get(i).getTarget().getH_scores()) +" and Edge = "+
 //                    x.adjacencies.get(i).getTarget().getName());
@@ -145,6 +183,10 @@ public class Controaller {
         return min;
     }
 
+    public Edge minimumEdge2(Vertix x) {
+
+        return null;
+    }
 
 
     public static int heuristic(int x1, int y1, int x2, int y2) {
