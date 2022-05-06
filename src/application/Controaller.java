@@ -63,20 +63,51 @@ public class Controaller {
         int herusticValueN =0;
         int countt=0;
         setheursticValue();
-
         Vertix minV = fromA;
+        int totalIn =0;
+        int totalOut =0;
+        int kCost=0;
+        int kHeros=0;
 
-        while (countt!=6){
+        while (countt!=20){
+
+            for (int i=0;i<minV.adjacencies.size();i++){
+                if (minV.adjacencies.get(i).getTarget().getName().equals(toB.getName())){
+                    System.out.println("minV is = "+minV.adjacencies.get(i));
+                    System.out.println("**********************");
+                    countt=20;
+                }
+            }
+
             for (int i =0;i< minV.adjacencies.size();i++){
+
                 DisCost = minV.adjacencies.get(i).getCost();
                 herusticValueN = minV.adjacencies.get(i).getTarget().getH_scores();
-                QueNode testt= new QueNode(minV.adjacencies.get(i).getTarget(),(DisCost+herusticValueN));
-                queuee.add(testt);
-                System.out.println(queuee.toString());
-               // break;
+                totalIn=(DisCost+herusticValueN)+totalOut;
+                System.out.println("for edge :"+minV.adjacencies.get(i)+"  H is ====== "+ herusticValueN+" And Total In is = "+totalIn);
+
+                    QueNode testt= new QueNode(minV.adjacencies.get(i).getTarget(),totalIn);
+                    queuee.add(testt);
+
+
             }
-            minV = queuee.peek().getX();
+            totalOut += queuee.peek().getTotal();
+            //System.out.println("minV is = "+minV.adjacencies);
+//            System.out.println(queuee.toString());
+//            System.out.println("Total is = "+totalOut);
+
+            System.out.println("####### "+queuee.toString());
+            minV = queuee.poll().getX();
             countt++;
+
+            for (int i=0;i<minV.adjacencies.size();i++){
+                if (minV.adjacencies.get(i).getTarget().getName().equals(toB.getName())){
+                    System.out.println("minV is = "+minV.adjacencies.get(i));
+                    System.out.println("**********************");
+                    countt=20;
+                }
+            }
+
 
         }
 

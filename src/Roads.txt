@@ -21,10 +21,12 @@ AlManara#KFC#464
 BOP#croos6#322
 BOP#icecreemBaldna#540
 KFC#AlManara#464
-KFC#croos3#44
-croos3#KFC#44
+KFC#croos3#45
+croos3#KFC#45
 croos3#croos4#225
 croos4#Frinds School#214
+Crossroad Q Bus#Frinds School#269
+Crossroad Q Bus#AlManara#220
 Frinds School#Crossroad Q Bus#269
 Frinds School#2shara RedHalal#189
 2shara RedHalal#Frinds School#189
