@@ -71,12 +71,13 @@ public class Controaller {
                 DisCost = minV.adjacencies.get(i).getCost();
                 herusticValueN = minV.adjacencies.get(i).getTarget().getH_scores();
                 QueNode testt= new QueNode(minV.adjacencies.get(i).getTarget(),(DisCost+herusticValueN));
-                queuee.add((QueNode)testt);
-
+                queuee.add(testt);
+                System.out.println(queuee.toString());
+               // break;
             }
-            System.out.println("******************************");
-            System.out.println(queuee.toString());
+            minV = queuee.peek().getX();
             countt++;
+
         }
 
 
