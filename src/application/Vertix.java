@@ -8,6 +8,8 @@ public class Vertix {
     private int x;
     private int y;
 
+//    private Vertix[] edgess;
+
     ArrayList<Edge> adjacencies = new ArrayList();
 
     public Vertix parent;

@@ -2,10 +2,7 @@ package application;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
@@ -34,6 +31,9 @@ public class Controaller {
     private TextField path;
 
     @FXML
+    private TextArea pathRoad;
+
+    @FXML
     private ChoiceBox<Vertix> target;
 
     @FXML
@@ -52,65 +52,6 @@ public class Controaller {
 
     @FXML
     void restb(ActionEvent event) {
-        PriorityQueue<QueNode> queuee = new PriorityQueue<>();
-
-        boolean teargetDone = true;
-
-        fromA = from.getValue();
-        toB = target.getValue();
-
-        int DisCost=0;
-        int herusticValueN =0;
-        int countt=0;
-        setheursticValue();
-        Vertix minV = fromA;
-        int totalIn =0;
-        int totalOut =0;
-        int kCost=0;
-        int kHeros=0;
-
-        while (countt!=20){
-
-            for (int i=0;i<minV.adjacencies.size();i++){
-                if (minV.adjacencies.get(i).getTarget().getName().equals(toB.getName())){
-                    System.out.println("minV is = "+minV.adjacencies.get(i));
-                    System.out.println("**********************");
-                    countt=20;
-                }
-            }
-
-            for (int i =0;i< minV.adjacencies.size();i++){
-
-                DisCost = minV.adjacencies.get(i).getCost();
-                herusticValueN = minV.adjacencies.get(i).getTarget().getH_scores();
-                totalIn=(DisCost+herusticValueN)+totalOut;
-                System.out.println("for edge :"+minV.adjacencies.get(i)+"  H is ====== "+ herusticValueN+" And Total In is = "+totalIn);
-
-                    QueNode testt= new QueNode(minV.adjacencies.get(i).getTarget(),totalIn);
-                    queuee.add(testt);
-
-
-            }
-            totalOut += queuee.peek().getTotal();
-            //System.out.println("minV is = "+minV.adjacencies);
-//            System.out.println(queuee.toString());
-//            System.out.println("Total is = "+totalOut);
-
-            System.out.println("####### "+queuee.toString());
-            minV = queuee.poll().getX();
-            countt++;
-
-            for (int i=0;i<minV.adjacencies.size();i++){
-                if (minV.adjacencies.get(i).getTarget().getName().equals(toB.getName())){
-                    System.out.println("minV is = "+minV.adjacencies.get(i));
-                    System.out.println("**********************");
-                    countt=20;
-                }
-            }
-
-
-        }
-
 
     }
 
@@ -142,55 +83,113 @@ public class Controaller {
 
     @FXML
     void Find(ActionEvent event) {
-        //int count = 0;
+
 
         PriorityQueue<QueNode> queuee = new PriorityQueue<>();
+
         boolean teargetDone = true;
+
         fromA = from.getValue();
         toB = target.getValue();
+
+        int DisCost = 0;
+        int herusticValueN = 0;
         setheursticValue();
-
-
         Vertix minV = fromA;
-//        System.out.println("X for fromA is = "+fromA.getX()+" Y for fromA is = "+fromA.getY());
-//        System.out.println("X for toB is = "+toB.getX()+" Y for toB is = "+toB.getY());
-        int disCounter=0;
-        int totalee=0;
-        while (teargetDone) {
-            //System.out.println(minV.adjacencies.toString());
-            Edge x = minimumEdge(minV);
-            disCounter+= x.getCost();
-            x.setCost(+disCounter);
+        int totalIn = 0;
+        int totalOut = 0;
+        String sPath = fromA.getName();
+        boolean found = true;
 
-            //System.out.println("Targeeeeet "+ minimumEdge(minV).getTarget().getName());
-            //System.out.println("To B testtttt = "+toB.getName());
-            System.out.println(" ---> " + minimumEdge(minV));
-            System.out.println("The Cost From "+x.getFrom() +" is = "+x.getCost());
-            if (minimumEdge(minV).getTarget().getName().equalsIgnoreCase(toB.getName())){
-                teargetDone=false;
+        while (found) {
 
-                break;
+            System.out.println(" --> " + minV.adjacencies);
+
+            for (int i = 0; i < minV.adjacencies.size(); i++) {
+
+                DisCost = minV.adjacencies.get(i).getCost();
+                herusticValueN = minV.adjacencies.get(i).getTarget().getH_scores();
+                totalIn = (DisCost + herusticValueN) + totalOut;
+                //System.out.println("for edge :"+minV.adjacencies.get(i)+"  H is ====== "+ herusticValueN+" And Total In is = "+totalIn);
+
+                QueNode testt = new QueNode(minV.adjacencies.get(i).getTarget(), totalIn);
+                queuee.add(testt);
+
             }
 
-//            totalee=  disCounter+ minV.getH_scores();
-//            QueNode m = new QueNode(minV,totalee);
-//            queuee.add(m);
 
 
+            totalOut += queuee.peek().getTotal();
 
-            for (int i = 0; i < Driver.virtexies.size(); i++) {
+            sPath += (" --> "+queuee.peek().getX().getName());
+            minV = queuee.poll().getX();
 
-                // System.out.println("disCount ===== "+disCounter);
-                if (Driver.virtexies.get(i).getName().equals(x.getTarget().getName())) {
-                    for (int j = 0; j < Driver.virtexies.get(i).adjacencies.size(); j++) {
-                        if (!(Driver.virtexies.get(i).adjacencies.get(j).getTarget().getName()).equalsIgnoreCase(Driver.virtexies.get(i).getName()))
-                            minV = Driver.virtexies.get(i);
 
-                        break;
-                    }
+            for (int i = 0; i < minV.adjacencies.size(); i++) {
+                if (minV.adjacencies.get(i).getTarget().getName().equals(toB.getName())) {
+                    sPath += minV.adjacencies.get(i).getTarget().getName();
+                    //System.out.println("minV is = " + minV.adjacencies.get(i));
+
+                    found=false;
                 }
             }
-        }//end While
+
+        }
+
+        System.out.println("Path is : " + sPath);
+
+        path.setText(sPath);
+        pathRoad.setText(sPath);
+
+//        //int count = 0;
+//
+//        PriorityQueue<QueNode> queuee = new PriorityQueue<>();
+//        boolean teargetDone = true;
+//        fromA = from.getValue();
+//        toB = target.getValue();
+//        setheursticValue();
+//
+//
+//        Vertix minV = fromA;
+////        System.out.println("X for fromA is = "+fromA.getX()+" Y for fromA is = "+fromA.getY());
+////        System.out.println("X for toB is = "+toB.getX()+" Y for toB is = "+toB.getY());
+//        int disCounter=0;
+//        int totalee=0;
+//        while (teargetDone) {
+//            //System.out.println(minV.adjacencies.toString());
+//            Edge x = minimumEdge(minV);
+//            disCounter+= x.getCost();
+//            x.setCost(+disCounter);
+//
+//            //System.out.println("Targeeeeet "+ minimumEdge(minV).getTarget().getName());
+//            //System.out.println("To B testtttt = "+toB.getName());
+//            System.out.println(" ---> " + minimumEdge(minV));
+//            System.out.println("The Cost From "+x.getFrom() +" is = "+x.getCost());
+//            if (minimumEdge(minV).getTarget().getName().equalsIgnoreCase(toB.getName())){
+//                teargetDone=false;
+//
+//                break;
+//            }
+//
+////            totalee=  disCounter+ minV.getH_scores();
+////            QueNode m = new QueNode(minV,totalee);
+////            queuee.add(m);
+//
+//
+//
+//            for (int i = 0; i < Driver.virtexies.size(); i++) {
+//
+//                // System.out.println("disCount ===== "+disCounter);
+//                if (Driver.virtexies.get(i).getName().equals(x.getTarget().getName())) {
+//                    for (int j = 0; j < Driver.virtexies.get(i).adjacencies.size(); j++) {
+//                        if (!(Driver.virtexies.get(i).adjacencies.get(j).getTarget().getName()).equalsIgnoreCase(Driver.virtexies.get(i).getName()))
+//                            minV = Driver.virtexies.get(i);
+//
+//                        break;
+//                    }
+//                }
+//            }
+//        }//end While
 
 
     }
@@ -199,16 +198,16 @@ public class Controaller {
     public Edge minimumEdge(Vertix x) {
         Edge min = null;
         int max = 900000;
-        for (int i = 0; i < x.adjacencies.size(); i++){
-            if (x.adjacencies.get(i).getTarget().getName().equals(toB.getName())){
-                return min=x.adjacencies.get(i);
+        for (int i = 0; i < x.adjacencies.size(); i++) {
+            if (x.adjacencies.get(i).getTarget().getName().equals(toB.getName())) {
+                return min = x.adjacencies.get(i);
             }
         }
         for (int i = 0; i < x.adjacencies.size(); i++) {
 //            System.out.println("herostic = "+(x.adjacencies.get(i).getCost()+x.adjacencies.get(i).getTarget().getH_scores()) +" and Edge = "+
 //                    x.adjacencies.get(i).getTarget().getName());
-            if ((x.adjacencies.get(i).getCost()+x.adjacencies.get(i).getTarget().getH_scores()) < max) {
-                max = (int) (x.adjacencies.get(i).getCost()+x.adjacencies.get(i).getTarget().getH_scores());
+            if ((x.adjacencies.get(i).getCost() + x.adjacencies.get(i).getTarget().getH_scores()) < max) {
+                max = (int) (x.adjacencies.get(i).getCost() + x.adjacencies.get(i).getTarget().getH_scores());
                 min = x.adjacencies.get(i);
             }
         }
